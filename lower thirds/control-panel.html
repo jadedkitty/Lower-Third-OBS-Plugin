@@ -8,10 +8,12 @@
 	<title>Lower Third Control Panel</title>
 	<link rel="stylesheet" href="../common/css/style-001.css">
 	<script src="../common/js/jquery.js"></script>
+	<!-- <script src="../common/js/scripts_02.js"></script> -->
 </head>
 
 <body class="lower-thirds-panel panel">
 	<div class="static-panel-top">
+		<h3>Lower Third</h3>
 		<input id="lower-thirds-name" placeholder="Primary Text (Large)">
 		<input id="lower-thirds-function" placeholder="Secondary Text (Small)">
 		<div class="displaybuttons">
@@ -30,7 +32,7 @@
 	</div>
 	</div>
 	<div class="panel-bottom">
-		<h3>Lower Thirds List</h3>
+		<h3>Lower Thirds Presets</h3>
 		<ul id="predefined">
 			<li>
 				<div class="name">Duff Gorle</div>
@@ -48,6 +50,9 @@
 			</li>
 		</ul>
 		<div>
+			<h3>Countdown</h3>
+			<input id="time" placeholder="Countdown Time (in minutes)"></input>
+			<button value='send' id="submit" onclick="function_send_countdown()">Set Countdown Time</button>
 
 			<script>
 				$("ul#predefined li").click(function () {
@@ -69,6 +74,17 @@
 				function function_hide() {
 					bc.postMessage('|||animateOut'); /* send - only last parameter*/
 				}
+
+				const bc2 = new BroadcastChannel('obs-countdown-channel');
+				function function_send_countdown() {
+					time_to_send = $("#time").val();
+
+					bc2.postMessage(time_to_send); /* send */
+					console.log(time_to_send);
+				};
+				// function function_hide() {
+				//     bc.postMessage('|||animateOut'); /* send - only last parameter*/
+				// }
 			</script>
 
 </body>
