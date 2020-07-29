@@ -13,4 +13,4 @@ Adapted from **[this plugin](https://obsproject.com/forum/resources/animated-low
 
 
 #### Disclaimer:
-This was specifically created and designed for Foothills Community Church and their specific use cases.
+>This was specifically created and designed for Foothills Community Church and their specific use cases.
